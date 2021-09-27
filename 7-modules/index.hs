@@ -1,6 +1,7 @@
 import Data.List
 import Data.Char
 import qualified Data.Map as Map
+import qualified Data.Set as Set
 
 -- Data.List
 numUniques :: (Eq a) => [a] -> Int
@@ -41,3 +42,11 @@ findKey key = foldr (\(k,v) acc -> if key == k then Just v else acc) Nothing
 phoneBookToMap :: (Ord k) => [(k, a)] -> Map.Map k [a]
 phoneBookToMap xs = Map.fromListWith (++) $ map (\(k,v) -> (k,[v])) xs
 
+-- Data.Set
+text1 = "I just had an anime dream. Anime... Reality... Are they so different?"  
+text2 = "The old man left his garbage can out and now his trash is all over my lawn!"
+
+set1 = Set.fromList text1
+set2 = Set.fromList text2
+
+setNub xs = Set.toList $ Set.fromList xs
