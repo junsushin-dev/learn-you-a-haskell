@@ -17,3 +17,8 @@ data Car = Car {
 } deriving (Show)
 
 car = Car "Ford" "Mustang" 1967
+
+tellCar :: Car -> String
+tellCar (Car { company = c , model = m, year = y }) = "This " ++ c ++ " " ++ m ++ " was mad in " ++ show y
+
+stang = Car { company = "Ford" , model = "Mustang", year = 1967 }
