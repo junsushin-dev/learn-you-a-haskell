@@ -5,3 +5,13 @@ addStuff = do
   a <- (*2)
   b <- (+10)
   return (a+b)
+
+addStuff2 :: Int -> Int
+addStuff2 x = let
+  a = (*2) x
+  b = (+10) x
+  in (a+b)
+
+-- instance Monad ((->) r) where
+--   return x = \_ -> x
+--   h >>= f = \w -> f (h w)
