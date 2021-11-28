@@ -29,8 +29,9 @@ myDisk =
 data FSCrumb = FSCrumb Name [FSItem] [FSItem] deriving (Show)
 type FSZipper = (FSItem, [FSCrumb])
 
-fsUp :: FSZipper -> FSZipper
-fsUp (item, FSCrumb name ls rs:bs) = (Folder name (ls ++ [item] ++ rs), bs)
+fsUp :: FSZipper -> Maybe FSZipper
+fsUp (item, FSCrumb name ls rs:bs) = Just (Folder name (ls ++ [item] ++ rs), bs)
+fsUp (item, []) = Nothing
 
 fsTo :: Name -> FSZipper -> FSZipper
 fsTo name (Folder folderName items, bs) = 
